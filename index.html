@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Takayuki Sato | Music</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 背景のビジュアル（Canvas） -->
+  <canvas id="viz" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="dot"></div>
+      <span class="name">Takayuki Sato</span>
+      <span class="tag">Music / Tech</span>
+    </div>
+    <nav class="nav">
+      <a href="#music">Music</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>音が動かす、景色。</h1>
+        <p class="lead">
+          バンド / シンセ / プログラミング。<br />
+          オリジナル作品と制作メモをまとめています。
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#music">▶ いますぐ聴く</a>
+          <a class="btn" href="#works">制作物を見る</a>
+        </div>
+
+        <div class="mini">
+          <span class="pill">#original</span>
+          <span class="pill">#synth</span>
+          <span class="pill">#live</span>
+          <span class="pill">#unity</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card player" id="music">
+          <div class="cover">
+            <!-- cover.jpgが無ければCSSのグラデでそれっぽく見せます -->
+            <img src="cover.jpg" alt="cover" onerror="this.style.display='none'">
+            <div class="cover-fallback"></div>
+          </div>
+
+          <div class="meta">
+            <div class="track">
+              <div class="title">My Track</div>
+              <div class="sub">Single / 2026</div>
+            </div>
+
+            <!-- カスタム操作UI（ボタン） -->
+            <div class="controls">
+              <button id="playBtn" class="play">Play</button>
+              <button id="stopBtn" class="ghost">Stop</button>
+            </div>
+
+            <!-- 標準プレイヤーは隠して、音源だけ使います -->
+            <audio id="audio" preload="metadata" crossorigin="anonymous">
+              <source src="music.mp3" type="audio/mpeg" />
+            </audio>
+
+            <div class="bar">
+              <input id="seek" type="range" min="0" max="1000" value="0" />
+              <div class="time">
+                <span id="cur">0:00</span>
+                <span id="dur">0:00</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="vol">
+                Vol
+                <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" />
+              </label>
+              <span class="hint">※iPhone等は「Play」を押してからビジュアルが動きます</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card quick">
+          <h2>Latest</h2>
+          <ul>
+            <li><span>2026-03</span> 新曲制作メモ更新</li>
+            <li><span>2026-02</span> ライブ動画アップ</li>
+            <li><span>2026-01</span> Unity同期作品追加</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="works">
+      <div class="card">
+        <h2>Works</h2>
+        <ul class="list">
+          <li>🎧 オリジナル曲・デモ</li>
+          <li>🧩 Unity × 音同期ビジュアル</li>
+          <li>🛠 制作ツール（VBA/自動化など）</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Links</h2>
+        <ul class="list">
+          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="#" target="_blank" rel="noopener">SoundCloud</a></li>
+          <li><a href="#" target="_blank" rel="noopener">X / Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact">
+        <h2>Contact</h2>
+        <p class="muted">
+          連絡はSNSのDM、またはメールで。
+        </p>
+        <p>
+          <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+        </p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      © <span id="y"></span> Takayuki Sato
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
