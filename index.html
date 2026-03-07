@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 背景のビジュアル（Canvas） -->
   <canvas id="viz" aria-hidden="true"></canvas>
 
   <header class="topbar">
@@ -29,7 +28,7 @@
       <div class="hero-left">
         <h1>音が動かす、景色。</h1>
         <p class="lead">
-          バンド / シンセ / プログラミング。<br />
+          バンド / シンセ / プログラミング。<br>
           オリジナル作品と制作メモをまとめています。
         </p>
 
@@ -49,7 +48,6 @@
       <div class="hero-right">
         <div class="card player" id="music">
           <div class="cover">
-            <!-- cover.jpgが無ければCSSのグラデでそれっぽく見せます -->
             <img src="images/cover.jpg" alt="cover" onerror="this.style.display='none'">
             <div class="cover-fallback"></div>
           </div>
@@ -60,19 +58,17 @@
               <div class="sub">Single / 2026</div>
             </div>
 
-            <!-- カスタム操作UI（ボタン） -->
             <div class="controls">
               <button id="playBtn" class="play">Play</button>
               <button id="stopBtn" class="ghost">Stop</button>
             </div>
 
-            <!-- 標準プレイヤーは隠して、音源だけ使います -->
             <audio id="audio" preload="metadata" crossorigin="anonymous">
-              <source src="music.mp3" type="audio/mpeg" />
+              <source src="music.mp3" type="audio/mpeg">
             </audio>
 
             <div class="bar">
-              <input id="seek" type="range" min="0" max="1000" value="0" />
+              <input id="seek" type="range" min="0" max="1000" value="0">
               <div class="time">
                 <span id="cur">0:00</span>
                 <span id="dur">0:00</span>
@@ -82,7 +78,7 @@
             <div class="row">
               <label class="vol">
                 Vol
-                <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" />
+                <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85">
               </label>
               <span class="hint">※iPhone等は「Play」を押してからビジュアルが動きます</span>
             </div>
@@ -125,7 +121,7 @@
           連絡はSNSのDM、またはメールで。
         </p>
         <p>
-          <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+          <a href="mailto:info@tenguchops.com">info@tenguchops.com</a>
         </p>
       </div>
     </section>
@@ -140,12 +136,4 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
