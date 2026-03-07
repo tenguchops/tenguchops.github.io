@@ -1,5 +1,5 @@
 :root{
-  --bg:#070b10;
+  --bg: radial-gradient(circle,#1a1a2e,#0f0f1a);
   --card: rgba(18,24,38,.78);
   --stroke: rgba(125,211,252,.18);
   --text:#e8eef6;
@@ -230,4 +230,5 @@ h2{margin:0 0 10px; font-size:16px}
 @media (max-width: 560px){
   .nav{display:none}
   .grid .card:nth-child(2), .grid .card:nth-child(3){grid-column: span 12}
+
 }
