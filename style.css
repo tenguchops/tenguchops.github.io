@@ -12,26 +12,40 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
 
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url("images/cover.jpg");
-
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
 a{color:var(--accent); text-decoration:none}
 a:hover{opacity:.9}
 
+/* 背景画像の上、コンテンツの下 */
 #viz{
   position:fixed;
   inset:0;
   width:100%;
   height:100%;
-  z-index:-1;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* コンテンツをcanvasより前面へ */
+.topbar,
+.wrap{
+  position:relative;
+  z-index:1;
 }
 
 .topbar{
@@ -48,17 +62,26 @@ a:hover{opacity:.9}
 }
 
 .brand{
-  display:flex; align-items:center; gap:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
+
 .dot{
-  width:10px; height:10px; border-radius:999px;
+  width:10px;
+  height:10px;
+  border-radius:999px;
   background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
   box-shadow: 0 0 18px rgba(125,211,252,.55);
 }
+
 .name{font-weight:700; letter-spacing:.4px}
+
 .tag{
-  font-size:12px; color:var(--muted);
-  padding:4px 10px; border:1px solid rgba(255,255,255,.10);
+  font-size:12px;
+  color:var(--muted);
+  padding:4px 10px;
+  border:1px solid rgba(255,255,255,.10);
   border-radius:999px;
 }
 
@@ -66,7 +89,11 @@ a:hover{opacity:.9}
 .nav a{color:var(--text); opacity:.85}
 .nav a:hover{opacity:1}
 
-.wrap{max-width:1100px; margin:0 auto; padding:18px 18px 60px}
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:18px 18px 60px;
+}
 
 .hero{
   display:grid;
@@ -81,6 +108,7 @@ a:hover{opacity:.9}
   font-size:42px;
   letter-spacing:.6px;
 }
+
 .lead{
   margin:0;
   color:var(--muted);
@@ -88,7 +116,13 @@ a:hover{opacity:.9}
   font-size:16px;
 }
 
-.cta{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap}
+.cta{
+  display:flex;
+  gap:10px;
+  margin-top:16px;
+  flex-wrap:wrap;
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -99,12 +133,19 @@ a:hover{opacity:.9}
   background: rgba(15,22,36,.55);
   color:var(--text);
 }
+
 .btn.primary{
   border-color: rgba(125,211,252,.35);
   box-shadow: 0 0 0 4px rgba(125,211,252,.08);
 }
 
-.mini{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap}
+.mini{
+  margin-top:14px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
 .pill{
   font-size:12px;
   color:var(--muted);
@@ -122,12 +163,16 @@ a:hover{opacity:.9}
   overflow:hidden;
 }
 
-.hero-right{display:flex; flex-direction:column; gap:14px}
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
 
 .player{
   display:grid;
   grid-template-columns: 180px 1fr;
-  min-height: 180px;
+  min-height:180px;
 }
 
 .cover{
@@ -135,6 +180,7 @@ a:hover{opacity:.9}
   border-right:1px solid rgba(255,255,255,.08);
   background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.18));
 }
+
 .cover img{
   width:100%;
   height:100%;
@@ -142,21 +188,37 @@ a:hover{opacity:.9}
   display:block;
   opacity:.9;
 }
+
 .cover-fallback{
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
   background:
     radial-gradient(800px 260px at 20% 20%, rgba(125,211,252,.35), transparent 60%),
     radial-gradient(800px 260px at 80% 80%, rgba(167,139,250,.35), transparent 60%);
-  mix-blend-mode: screen;
+  mix-blend-mode:screen;
 }
 
 .meta{padding:14px}
-.track .title{font-weight:800; font-size:18px}
-.track .sub{color:var(--muted); font-size:12px; margin-top:4px}
 
-.controls{display:flex; gap:10px; margin:12px 0 10px}
+.track .title{
+  font-weight:800;
+  font-size:18px;
+}
+
+.track .sub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.controls{
+  display:flex;
+  gap:10px;
+  margin:12px 0 10px;
+}
+
 button{
-  font: inherit;
+  font:inherit;
   padding:10px 12px;
   border-radius:12px;
   border:1px solid rgba(255,255,255,.12);
@@ -164,9 +226,11 @@ button{
   color:var(--text);
   cursor:pointer;
 }
+
 button.play{
   border-color: rgba(125,211,252,.35);
 }
+
 button.ghost{opacity:.85}
 button:hover{opacity:.95}
 
@@ -189,14 +253,42 @@ input[type="range"]{width:100%}
   justify-content:space-between;
   flex-wrap:wrap;
 }
-.vol{display:flex; gap:10px; align-items:center; color:var(--muted); font-size:12px}
+
+.vol{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
 .vol input{width:140px}
-.hint{color:var(--muted); font-size:12px; opacity:.85}
+
+.hint{
+  color:var(--muted);
+  font-size:12px;
+  opacity:.85;
+}
 
 .quick{padding:14px}
-.quick h2{margin:0 0 10px; font-size:16px}
-.quick ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.8}
-.quick li span{color:var(--text); opacity:.8; margin-right:8px}
+
+.quick h2{
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+.quick ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.quick li span{
+  color:var(--text);
+  opacity:.8;
+  margin-right:8px;
+}
 
 .grid{
   display:grid;
@@ -204,14 +296,28 @@ input[type="range"]{width:100%}
   gap:14px;
   margin-top:18px;
 }
+
 .grid .card{padding:14px}
 .grid .card:nth-child(1){grid-column: span 6}
 .grid .card:nth-child(2){grid-column: span 3}
 .grid .card:nth-child(3){grid-column: span 3}
 
-h2{margin:0 0 10px; font-size:16px}
-.muted{color:var(--muted); line-height:1.7}
-.list{margin:0; padding-left:18px; color:var(--muted); line-height:1.8}
+h2{
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+.muted{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.list{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.8;
+}
 
 .foot{
   margin-top:22px;
@@ -220,21 +326,22 @@ h2{margin:0 0 10px; font-size:16px}
   opacity:.9;
 }
 
-/* Responsive */
 @media (max-width: 900px){
   .hero{grid-template-columns: 1fr}
   .player{grid-template-columns: 1fr}
-  .cover{border-right:none; border-bottom:1px solid rgba(255,255,255,.08); height:220px}
+  .cover{
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    height:220px;
+  }
   .grid .card:nth-child(1){grid-column: span 12}
   .grid .card:nth-child(2){grid-column: span 6}
   .grid .card:nth-child(3){grid-column: span 6}
   .hero h1{font-size:34px}
 }
+
 @media (max-width: 560px){
   .nav{display:none}
-  .grid .card:nth-child(2), .grid .card:nth-child(3){grid-column: span 12}
-
+  .grid .card:nth-child(2),
+  .grid .card:nth-child(3){grid-column: span 12}
 }
-
-
-
