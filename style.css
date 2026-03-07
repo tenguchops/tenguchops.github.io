@@ -22,7 +22,7 @@ body{
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url("images/cover.jpg");
-  background-size:cover;
+  background-size:contain;
   background-position:center;
   background-repeat:no-repeat;
   background-attachment:fixed;
@@ -345,3 +345,4 @@ h2{
   .grid .card:nth-child(2),
   .grid .card:nth-child(3){grid-column: span 12}
 }
+
