@@ -18,20 +18,17 @@ body{
   font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
   color:var(--text);
   overflow-x:hidden;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("images/cover.jpg");
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
+  background:#121212;
 }
 
-a{color:var(--accent); text-decoration:none}
-a:hover{opacity:.9}
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+a:hover{
+  opacity:.9;
+}
 
-/* 背景画像の上、コンテンツの下 */
 #viz{
   position:fixed;
   inset:0;
@@ -41,7 +38,6 @@ a:hover{opacity:.9}
   pointer-events:none;
 }
 
-/* コンテンツをcanvasより前面へ */
 .topbar,
 .wrap{
   position:relative;
@@ -51,8 +47,8 @@ a:hover{opacity:.9}
 .topbar{
   position:sticky;
   top:0;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(to bottom, rgba(7,11,16,.75), rgba(7,11,16,.35));
+  backdrop-filter:blur(10px);
+  background:linear-gradient(to bottom, rgba(7,11,16,.75), rgba(7,11,16,.35));
   border-bottom:1px solid rgba(255,255,255,.06);
   padding:14px 18px;
   display:flex;
@@ -71,11 +67,14 @@ a:hover{opacity:.9}
   width:10px;
   height:10px;
   border-radius:999px;
-  background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
-  box-shadow: 0 0 18px rgba(125,211,252,.55);
+  background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
+  box-shadow:0 0 18px rgba(125,211,252,.55);
 }
 
-.name{font-weight:700; letter-spacing:.4px}
+.name{
+  font-weight:700;
+  letter-spacing:.4px;
+}
 
 .tag{
   font-size:12px;
@@ -85,9 +84,19 @@ a:hover{opacity:.9}
   border-radius:999px;
 }
 
-.nav{display:flex; gap:14px}
-.nav a{color:var(--text); opacity:.85}
-.nav a:hover{opacity:1}
+.nav{
+  display:flex;
+  gap:14px;
+}
+
+.nav a{
+  color:var(--text);
+  opacity:.85;
+}
+
+.nav a:hover{
+  opacity:1;
+}
 
 .wrap{
   max-width:1100px;
@@ -97,7 +106,7 @@ a:hover{opacity:.9}
 
 .hero{
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns:1.1fr .9fr;
   gap:18px;
   align-items:start;
   padding-top:18px;
@@ -130,13 +139,13 @@ a:hover{opacity:.9}
   padding:10px 14px;
   border-radius:12px;
   border:1px solid rgba(255,255,255,.12);
-  background: rgba(15,22,36,.55);
+  background:rgba(15,22,36,.55);
   color:var(--text);
 }
 
 .btn.primary{
-  border-color: rgba(125,211,252,.35);
-  box-shadow: 0 0 0 4px rgba(125,211,252,.08);
+  border-color:rgba(125,211,252,.35);
+  box-shadow:0 0 0 4px rgba(125,211,252,.08);
 }
 
 .mini{
@@ -152,14 +161,14 @@ a:hover{opacity:.9}
   border:1px solid rgba(255,255,255,.10);
   border-radius:999px;
   padding:4px 10px;
-  background: rgba(255,255,255,.04);
+  background:rgba(255,255,255,.04);
 }
 
 .card{
-  background: var(--card);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
   overflow:hidden;
 }
 
@@ -171,14 +180,14 @@ a:hover{opacity:.9}
 
 .player{
   display:grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns:180px 1fr;
   min-height:180px;
 }
 
 .cover{
   position:relative;
   border-right:1px solid rgba(255,255,255,.08);
-  background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.18));
+  background:linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.18));
 }
 
 .cover img{
@@ -186,7 +195,7 @@ a:hover{opacity:.9}
   height:100%;
   object-fit:cover;
   display:block;
-  opacity:.9;
+  opacity:.95;
 }
 
 .cover-fallback{
@@ -198,7 +207,9 @@ a:hover{opacity:.9}
   mix-blend-mode:screen;
 }
 
-.meta{padding:14px}
+.meta{
+  padding:14px;
+}
 
 .track .title{
   font-weight:800;
@@ -222,20 +233,30 @@ button{
   padding:10px 12px;
   border-radius:12px;
   border:1px solid rgba(255,255,255,.12);
-  background: rgba(15,22,36,.55);
+  background:rgba(15,22,36,.55);
   color:var(--text);
   cursor:pointer;
 }
 
 button.play{
-  border-color: rgba(125,211,252,.35);
+  border-color:rgba(125,211,252,.35);
 }
 
-button.ghost{opacity:.85}
-button:hover{opacity:.95}
+button.ghost{
+  opacity:.85;
+}
 
-.bar{margin-top:8px}
-input[type="range"]{width:100%}
+button:hover{
+  opacity:.95;
+}
+
+.bar{
+  margin-top:8px;
+}
+
+input[type="range"]{
+  width:100%;
+}
 
 .time{
   display:flex;
@@ -262,7 +283,9 @@ input[type="range"]{width:100%}
   font-size:12px;
 }
 
-.vol input{width:140px}
+.vol input{
+  width:140px;
+}
 
 .hint{
   color:var(--muted);
@@ -270,7 +293,9 @@ input[type="range"]{width:100%}
   opacity:.85;
 }
 
-.quick{padding:14px}
+.quick{
+  padding:14px;
+}
 
 .quick h2{
   margin:0 0 10px;
@@ -292,15 +317,26 @@ input[type="range"]{width:100%}
 
 .grid{
   display:grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns:repeat(12, 1fr);
   gap:14px;
   margin-top:18px;
 }
 
-.grid .card{padding:14px}
-.grid .card:nth-child(1){grid-column: span 6}
-.grid .card:nth-child(2){grid-column: span 3}
-.grid .card:nth-child(3){grid-column: span 3}
+.grid .card{
+  padding:14px;
+}
+
+.grid .card:nth-child(1){
+  grid-column:span 6;
+}
+
+.grid .card:nth-child(2){
+  grid-column:span 3;
+}
+
+.grid .card:nth-child(3){
+  grid-column:span 3;
+}
 
 h2{
   margin:0 0 10px;
@@ -326,23 +362,45 @@ h2{
   opacity:.9;
 }
 
-@media (max-width: 900px){
-  .hero{grid-template-columns: 1fr}
-  .player{grid-template-columns: 1fr}
+@media (max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .player{
+    grid-template-columns:1fr;
+  }
+
   .cover{
     border-right:none;
     border-bottom:1px solid rgba(255,255,255,.08);
     height:220px;
   }
-  .grid .card:nth-child(1){grid-column: span 12}
-  .grid .card:nth-child(2){grid-column: span 6}
-  .grid .card:nth-child(3){grid-column: span 6}
-  .hero h1{font-size:34px}
+
+  .grid .card:nth-child(1){
+    grid-column:span 12;
+  }
+
+  .grid .card:nth-child(2){
+    grid-column:span 6;
+  }
+
+  .grid .card:nth-child(3){
+    grid-column:span 6;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
 }
 
-@media (max-width: 560px){
-  .nav{display:none}
+@media (max-width:560px){
+  .nav{
+    display:none;
+  }
+
   .grid .card:nth-child(2),
-  .grid .card:nth-child(3){grid-column: span 12}
+  .grid .card:nth-child(3){
+    grid-column:span 12;
+  }
 }
-
