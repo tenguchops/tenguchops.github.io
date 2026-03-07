@@ -14,10 +14,13 @@
 html,body{height:100%}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x:hidden;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("images/cover.jpg");
+
+  background-size: cover;
+  background-position: center;
 }
 
 a{color:var(--accent); text-decoration:none}
@@ -232,5 +235,6 @@ h2{margin:0 0 10px; font-size:16px}
   .grid .card:nth-child(2), .grid .card:nth-child(3){grid-column: span 12}
 
 }
+
 
 
