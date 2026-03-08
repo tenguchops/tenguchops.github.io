@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>tengu chops | Music</title>
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="viz" aria-hidden="true"></canvas>
@@ -16,113 +16,176 @@
       <span class="name">tenguchops</span>
       <span class="tag">Music / Tech</span>
     </div>
+
     <nav class="nav">
       <a href="#music">Music</a>
+      <a href="#news">News</a>
       <a href="#works">Works</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <section class="hero">
-      <div class="hero-left">
-        <h1>音が動かす、景色。</h1>
-        <p class="lead">
-          バンド / シンセ / プログラミング。<br>
-          オリジナル作品と制作メモをまとめています。
-        </p>
+    <!-- 上部の紹介エリア -->
+    <section class="hero-intro">
+      <p class="eyebrow">ORIGINAL SOUND / LIVE / SYNTH / VISUAL</p>
+      <h1>音が動かす、景色。</h1>
+      <p class="lead">
+        tenguchops のオリジナル作品、制作メモ、ライブ情報をまとめたサイトです。<br>
+        バンド / シンセ / プログラミングを横断しながら、音とビジュアルの接点を探っています。
+      </p>
 
-        <div class="cta">
-          <a class="btn primary" href="#music">▶ いますぐ聴く</a>
-          <a class="btn" href="#works">制作物を見る</a>
-        </div>
-
-        <div class="mini">
-          <span class="pill">#original</span>
-          <span class="pill">#synth</span>
-          <span class="pill">#live</span>
-          <span class="pill">#unity</span>
-        </div>
+      <div class="cta">
+        <a class="btn primary" href="#music">▶ いますぐ聴く</a>
+        <a class="btn" href="#news">更新を見る</a>
       </div>
 
-      <div class="hero-right">
-        <div class="card player" id="music">
-          <div class="cover">
-            <img src="images/cover.jpg" alt="cover" onerror="this.style.display='none'">
-            <div class="cover-fallback"></div>
-          </div>
-
-          <div class="meta">
-            <div class="track">
-              <div class="title">My Track</div>
-              <div class="sub">Single / 2026</div>
-            </div>
-
-            <div class="controls">
-              <button id="playBtn" class="play">Play</button>
-              <button id="stopBtn" class="ghost">Stop</button>
-            </div>
-
-            <audio id="audio" preload="metadata" crossorigin="anonymous">
-              <source src="music.mp3" type="audio/mpeg">
-            </audio>
-
-            <div class="bar">
-              <input id="seek" type="range" min="0" max="1000" value="0">
-              <div class="time">
-                <span id="cur">0:00</span>
-                <span id="dur">0:00</span>
-              </div>
-            </div>
-
-            <div class="row">
-              <label class="vol">
-                Vol
-                <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85">
-              </label>
-              <span class="hint">※iPhone等は「Play」を押してからビジュアルが動きます</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card quick">
-          <h2>Latest</h2>
-          <ul>
-            <li><span>2026-03</span> 新曲制作メモ更新</li>
-            <li><span>2026-02</span> ライブ動画アップ</li>
-            <li><span>2026-01</span> Unity同期作品追加</li>
-          </ul>
-        </div>
+      <div class="mini">
+        <span class="pill">#original</span>
+        <span class="pill">#synth</span>
+        <span class="pill">#live</span>
+        <span class="pill">#unity</span>
       </div>
     </section>
 
-    <section class="grid" id="works">
-      <div class="card">
-        <h2>Works</h2>
-        <ul class="list">
-          <li>🎧 オリジナル曲・デモ</li>
-          <li>🧩 Unity × 音同期ビジュアル</li>
-          <li>🛠 制作ツール（VBA/自動化など）</li>
-        </ul>
+    <!-- メインプレーヤー -->
+    <section class="featured" id="music">
+      <article class="card featured-player">
+        <div class="featured-cover">
+          <img src="images/cover.jpg" alt="cover" onerror="this.style.display='none'">
+          <div class="featured-cover-fallback"></div>
+        </div>
+
+        <div class="featured-body">
+          <p class="section-label">LATEST RELEASE</p>
+
+          <div class="track">
+            <div class="title">My Track</div>
+            <div class="sub">Single / 2026</div>
+          </div>
+
+          <p class="featured-text">
+            最新トラックの試聴版です。音像・空気感・ビートの動きに注目してください。
+            制作背景や関連メモは下のNewsから更新していきます。
+          </p>
+
+          <div class="controls">
+            <button id="playBtn" class="play">Play</button>
+            <button id="stopBtn" class="ghost">Stop</button>
+          </div>
+
+          <audio id="audio" preload="metadata" crossorigin="anonymous">
+            <source src="music.mp3" type="audio/mpeg">
+          </audio>
+
+          <div class="bar">
+            <input id="seek" type="range" min="0" max="1000" value="0">
+            <div class="time">
+              <span id="cur">0:00</span>
+              <span id="dur">0:00</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="vol">
+              Vol
+              <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85">
+            </label>
+            <span class="hint">※ iPhone等は Play を押してからビジュアルが動きます</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- News / Latest -->
+    <section class="news-section" id="news">
+      <div class="section-head">
+        <p class="section-label">NEWS</p>
+        <h2>Latest Updates</h2>
       </div>
 
-      <div class="card">
-        <h2>Links</h2>
-        <ul class="list">
-          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="#" target="_blank" rel="noopener">SoundCloud</a></li>
-          <li><a href="https://instagram.com/tenguchops" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
+      <div class="news-list">
+        <article class="card news-item">
+          <div class="news-image">
+            <img src="images/cover.jpg" alt="news image" onerror="this.style.display='none'">
+            <div class="news-image-fallback"></div>
+          </div>
+          <div class="news-body">
+            <p class="news-date">2026.03</p>
+            <h3>新曲制作メモ更新</h3>
+            <p>
+              音作り・構成・リズムアイデアについてメモを追加。
+              シンセベースと空間処理の方向性を少し整理しました。
+            </p>
+          </div>
+        </article>
+
+        <article class="card news-item">
+          <div class="news-image">
+            <img src="images/cover.jpg" alt="news image" onerror="this.style.display='none'">
+            <div class="news-image-fallback"></div>
+          </div>
+          <div class="news-body">
+            <p class="news-date">2026.02</p>
+            <h3>ライブ動画アップ</h3>
+            <p>
+              ライブ映像を公開。演奏の空気感や、現場でのアレンジの違いを確認できます。
+            </p>
+          </div>
+        </article>
+
+        <article class="card news-item">
+          <div class="news-image">
+            <img src="images/cover.jpg" alt="news image" onerror="this.style.display='none'">
+            <div class="news-image-fallback"></div>
+          </div>
+          <div class="news-body">
+            <p class="news-date">2026.01</p>
+            <h3>Unity同期作品追加</h3>
+            <p>
+              音に連動するビジュアル作品を追加。
+              サウンドだけでなく視覚側の反応も含めて作品化しています。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 下部情報 -->
+    <section class="info-section" id="works">
+      <div class="section-head">
+        <p class="section-label">INFORMATION</p>
+        <h2>Works / Links / Contact</h2>
       </div>
 
-      <div class="card" id="contact">
-        <h2>Contact</h2>
-        <p class="muted">
-          連絡はSNSのDM、またはメールで。
-        </p>
-        <p>
-          <a href="mailto:info@tenguchops.com">info@tenguchops.com</a>
-        </p>
+      <div class="info-stack">
+        <article class="card info-card">
+          <h3>Works</h3>
+          <ul class="list">
+            <li>🎧 オリジナル曲・デモ</li>
+            <li>🧩 Unity × 音同期ビジュアル</li>
+            <li>🛠 制作ツール（VBA / 自動化など）</li>
+          </ul>
+        </article>
+
+        <article class="card info-card">
+          <h3>Links</h3>
+          <ul class="list">
+            <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="#" target="_blank" rel="noopener">SoundCloud</a></li>
+            <li><a href="https://instagram.com/tenguchops" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </article>
+
+        <article class="card info-card" id="contact">
+          <h3>Contact</h3>
+          <p class="muted">
+            連絡はSNSのDM、またはメールでお願いします。
+          </p>
+          <p class="contact-line">
+            <a href="mailto:info@tenguchops.com">info@tenguchops.com</a>
+          </p>
+        </article>
       </div>
     </section>
 
@@ -137,4 +200,3 @@
   </script>
 </body>
 </html>
-
